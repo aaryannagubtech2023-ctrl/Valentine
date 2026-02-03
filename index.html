@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>For You 💌</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+  body {
+    background: #f3e9f4;
+    font-family: 'Segoe UI', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+  }
+
+  .container {
+    text-align: center;
+  }
+
+  .envelope {
+    width: 260px;
+    height: 160px;
+    background: #ff7a7a;
+    position: relative;
+    border-radius: 6px;
+    overflow: hidden;
+    margin: auto;
+  }
+
+  .envelope::before {
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 0;
+    border-left: 130px solid transparent;
+    border-right: 130px solid transparent;
+    border-top: 80px solid #ff9a9a;
+    top: 0;
+    left: 0;
+  }
+
+  .letter {
+    width: 230px;
+    height: 200px;
+    background: #ffffff;
+    position: absolute;
+    top: 20px;
+    left: 15px;
+    padding: 15px;
+    box-sizing: border-box;
+    border-radius: 6px;
+    transform: translateY(120px);
+    transition: 0.6s ease;
+    text-align: center;
+  }
+
+  .letter.open {
+    transform: translateY(-40px);
+  }
+
+  h3 {
+    margin-top: 10px;
+    color: #333;
+  }
+
+  button {
+    margin: 8px 5px;
+    padding: 8px 18px;
+    border: none;
+    border-radius: 20px;
+    font-size: 14px;
+    cursor: pointer;
+  }
+
+  .openBtn { background: #ff5c5c; color: #fff; }
+  .closeBtn { background: #ccc; }
+
+  .yes { background: #4CAF50; color: white; }
+  .no { background: #f44336; color: white; }
+
+  .result {
+    margin-top: 10px;
+    font-weight: bold;
+    color: #444;
+  }
+</style>
+</head>
+
+<body>
+<div class="container">
+
+  <div class="envelope">
+    <div class="letter" id="letter">
+      <h3>Will you be my Valentine? 💖</h3>
+      <button class="yes" onclick="yes()">Yes ❤️</button>
+      <button class="no" onclick="no()">No 💔</button>
+      <div class="result" id="result"></div>
+    </div>
+  </div>
+
+  <br>
+  <button class="openBtn" onclick="openLetter()">OPEN</button>
+  <button class="closeBtn" onclick="closeLetter()">CLOSE</button>
+
+</div>
+
+<script>
+  function openLetter() {
+    document.getElementById("letter").classList.add("open");
+  }
+
+  function closeLetter() {
+    document.getElementById("letter").classList.remove("open");
+    document.getElementById("result").innerText = "";
+  }
+
+  function yes() {
+    document.getElementById("result").innerText =
+      "YAY 💕 You just made my Valentine’s Day perfect!";
+  }
+
+  function no() {
+    document.getElementById("result").innerText =
+      "Still happy you opened it 💌";
+  }
+</script>
+</body>
+</html>
